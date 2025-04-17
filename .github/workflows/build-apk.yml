@@ -1,0 +1,31 @@
+
+name: Build APK
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: |
+          npm install -g @capacitor/cli
+          npm install
+
+      - name: Build project
+        run: |
+          npm run build
+          npx cap add android
+          npx cap copy
+
+      - name: Upload APK (manual step)
+        run: echo "Open android/ in Android Studio to build .apk"
