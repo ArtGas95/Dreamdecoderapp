@@ -1,0 +1,10 @@
+{
+  "appId": "com.artgas.android.dreamdecoderapp",
+  "appName": "DreamDecoderApp",
+  "webDir": "dist",
+  "plugins": {
+    "SplashScreen": {
+      "launchAutoHide": false
+    }
+  }
+}
